@@ -1,260 +1,82 @@
-<!DOCTYPE html>
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>圣诞快乐格格同学</title>
-	    
-        <link type="text/css" rel="stylesheet" href="./index_files/default.css">
-		<script type="text/javascript" src="./index_files/jquery.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-parser.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-jit.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
-		<script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
-		<script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
-	    <style type="text/css">
-<!--
-.STYLE1 {color: #666666}
--->
-.custom-size {
-	font-size: 16px;
-}
-        </style>
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+
+<!-- Behavioral Meta Data -->
+<meta name="Christmas-Landing-Page" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/media-query.css">
+
 </head>
-    <body>
-	<audio class="noembed" autoplay>
-		<source src="shengdanzhiwen.mp3" type="audio/mpeg">
-		您的浏览器不支持音频元素。
-	</audio>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			document.querySelector(".full-screen-audio").autoplay();
-		});
-	</script>
-
-        <div id="main">
-            <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
-            <div id="wrap">
-                <div id="text">
-			        <div id="code">
-			        	<span class="say">* 天使的回归 *</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">· 十年前，我在中学看到了天使 </span><br>
-						<span class="say"> </span><br>
-                        <span class="say">· 她的眼睛，微笑在我心里</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">· 怯懦的心意不曾流露唇齿 </span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">· 每个白天黑夜的邂逅，爱意 </span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">· 慢慢浸透了这许多的日记 </span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">· 也许爱情是在有天使的日子 </span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">· 即使她留下悲伤，突然消失 </span><br>
-                        <span class="say"> </span><br>
-                        <span class="say">· 我也续写新的一章没有停止 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 但是时间久了，日月轮回 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 似乎已经把那心窗堵死 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 世界的黑暗和空洞是没有天使的日子 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 已经是十年后，再见天使 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 烈日晴空下的明媚花园里 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 背后的摩天轮，沙滩，湖水 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 洁白的天使是在画中的人儿 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 不经意间在我的眼前降临 </span><br>
-						<span class="say"> </span><br>
-						<span class="say">· 这也是我为什么又开始书写的原因 </span><br>
-						<span class="say"> </span><br>
-                        <span class="say"><span class="space"></span>--@author 莫云斌--</span>
-			        </div>
-                </div>
-                <div id="clock-box">
-                    <span class="STYLE1"><span class="STYLE1" style="color: coral">第一个圣诞节快乐，格格同学</span><br>
-						<span class="custom-size" style="color: black">PS：我们已经认识了：</span>
-						<div id="clock"></div>
-						</span>
-                </div>
-                <canvas id="canvas" width="1100" height="980"></canvas>
-            </div>
-            
-        </div>
-
-    <script>
-    (function(){
-        var canvas = $('#canvas');
-		
-        if (!canvas[0].getContext) {
-            $("#error").show();
-            return false;
-        }
-
-        var width = canvas.width();
-        var height = canvas.height();
-        
-        canvas.attr("width", width);
-        canvas.attr("height", height);
-
-        var opts = {
-            seed: {
-                x: width / 2 - 20,
-                color: "rgb(190, 26, 37)",
-                scale: 2
-            },
-            branch: [
-                [535, 680, 570, 250, 500, 200, 30, 100, [
-                    // First branch
-                    [540, 500, 455, 417, 340, 400, 13, 100, [
-                        // First subbranch
-                        [450, 435, 434, 430, 394, 395, 2, 40]
-                    ]],
-                    [550, 445, 600, 356, 680, 345, 12, 100, [
-                        // Second subbranch
-                        [578, 400, 648, 409, 661, 426, 3, 80]
-                    ]],
-                    // Second branch
-                    [539, 281, 537, 248, 534, 217, 3, 40],
-                    [546, 397, 413, 247, 328, 244, 9, 80, [
-                        // Third subbranch
-                        [427, 286, 383, 253, 371, 205, 2, 40],
-                        [498, 345, 435, 315, 395, 330, 4, 60]
-                    ]],
-                    [546, 357, 608, 252, 678, 221, 6, 100, [
-                        // Fourth subbranch
-                        [590, 293, 646, 277, 648, 271, 2, 80]
-                    ]]
-                ]] 
-            ],
-            bloom: {
-                num: 700,
-                width: 1080,
-                height: 650,
-            },
-            footer: {
-                width: 400,
-                height: 1,
-                speed: 10,
-            }
-        }
-
-        var tree = new Tree(canvas[0], width, height, opts);
-        var seed = tree.seed;
-        var foot = tree.footer;
-        var hold = 1;
-
-        canvas.click(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
-        }).mousemove(function(e){
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
-
-        var seedAnimate = eval(Jscex.compile("async", function () {
-            seed.draw();
-            while (hold) {
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canScale()) {
-                seed.scale(0.95);
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canMove()) {
-                seed.move(0, 2);
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-        }));
-
-        var growAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.grow();
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canGrow());
-        }));
-
-        var flowAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.flower(2);
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canFlower());
-        }));
-
-        var moveAnimate = eval(Jscex.compile("async", function () {
-            tree.snapshot("p1", 240, 0, 610, 680);
-            while (tree.move("p1", 500, 0)) {
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-            foot.draw();
-            tree.snapshot("p2", 500, 0, 610, 680);
+<body>
 
 
-            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
-        }));
 
-        var jumpAnimate = eval(Jscex.compile("async", function () {
-            var ctx = tree.ctx;
-            while (true) {
-                tree.ctx.clearRect(0, 0, width, height);
-                tree.jump();
-                foot.draw();
-                $await(Jscex.Async.sleep(25));
-            }
-        }));
-       //下面修改起始日期
-        var textAnimate = eval(Jscex.compile("async", function () {
-		    var together = new Date();
-		    together.setFullYear(2023, 9, 7); 			//时间年月日 月份0~11
-		    together.setHours(10);						//小时
-		    together.setMinutes(10);					//分钟
-		    together.setSeconds(2);					//秒前一位
-		    together.setMilliseconds(2);				//秒第二位
+<div id="loader"></div>
+<!-- Parallax Container -->
+<div id="container" class="parallax-container snow">
+	<ul id="christmas_scene" class="christmas-scene" >
+		<li class="layer" data-depth="0.80"><div class="layer-5 layer-photo photo-zoom"></div></li>
+		<li class="layer" data-depth="0.60"><div class="layer-4 layer-photo photo-zoom"></div></li>
+		<li class="layer" data-depth="0.40"><div class="layer-3 layer-photo photo-zoom"></div></li>
+		<li class="layer" data-depth="0.20"><div class="layer-2 layer-photo photo-zoom"></div></li>
+		<li class="layer" data-depth="0.00"><div class="layer-1 layer-photo"></div></li>
+	</ul>
+	<!-- Countdown Container -->
+<!--	<div id="countdown_container"></div>-->
 
-		    $("#code").show().typewriter();
-            $("#clock-box").fadeIn(500);
-            while (true) {
-                timeElapse(together);
-                $await(Jscex.Async.sleep(1000));
-            }
-        }));
+	<!-- Merry Christmas Text -> You can replace with anything you like! -->
+	<div class="merry-christmas-text">Merry Christmas</div>
 
-        var runAsync = eval(Jscex.compile("async", function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
+	<!-- Contact Pole Image -> From here the E-mail modal is triggered -->
+	<div id="mail_pole">
+<!--		<img src="images/gift1.png" class="img-responsive" alt="mail_pole">-->
+		<a href="poetry.html" target="_blank">
+			<img src="images/gift1.png" class="img-responsive" alt="mail_pole">
+		</a>
 
-            textAnimate().start();
+	</div>
 
-            $await(jumpAnimate());
-        }));
+	<!-- Christmas Tree -->
+	<img src="images/christmas-tree.png" alt="christmas-tree" id="christmas_tree">
 
-        runAsync().start();
-    })();
+	<div id="mail_pole1">
+		<!--		<img src="images/gift1.png" class="img-responsive" alt="mail_pole">-->
+		<a href="CristmasTree.html" target="_blank">
+			<img src="images/gift2.png" class="img-responsive" alt="mail_pole1">
+		</a>
+
+	</div>
+</div>
 
 
-    </script>
-
-
+<!-- Scripts -->
+<script src="js/jquery-3.1.1.min.js"></script> 
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/jquery.countdown.js"></script> 
+<script src="js/jquery.parallax.js"></script>
+<script src="js/snow.js"></script>
+<script src="js/main.js"></script>
+<script>
+	// Parallax Init
+	$('#christmas_scene').parallax({
+		scalarX: 5,
+		scalarY: 15,
+		invertY: false
+	});
+</script>
+<style>
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+<!--<div class="copyrights" id="links20210126">-->
+<!--	Collect from <a href="http://www.cssmoban.com/"  title="网站模板">模板之家</a>-->
+<!--	<a href="https://www.chazidian.com/"  title="查字典">查字典</a>-->
+<!--</div>-->
 </body>
 </html>

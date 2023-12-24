@@ -1075,7 +1075,7 @@ async function openInStackBlitz() {
     files[name] = {content};
     return files;
   }, {
-    'index.html': {
+    'poetry.html': {
       content: htmlTemplate({
         body: html,
         css: htmlParts.css.sources[0].source,

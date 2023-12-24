@@ -104,24 +104,14 @@
         <ul>
             <li>
                 <button class="btn" id="btnA" type="button">
-                    圣诞星-周杰伦
+                    格宝的圣诞树
                 </button>
             </li>
-            <li>
-                <button class="btn" id="btnB" type="button">
-                    铃儿响叮当-英文
-                </button>
-            </li>
-            <li class="separator">或者</li>
-            <li>
-<!--                <audio class="noembed" id="music" autoplay>-->
-<!--                    <source src="shengdanxing.mp3" type="audio/mpeg">-->
-<!--                    您的浏览器不支持音频元素。-->
-<!--                </audio>-->
+            <li class="separator"> </li>
 
-                <input type="file" id="upload" hidden/>
-                <label for="upload">上传音乐</label>
-            </li>
+
+<!--                <input type="file" id="upload" hidden/>-->
+<!--                <label for="upload">上传音乐</label>-->
         </ul>
     </div>
 
@@ -181,7 +171,7 @@
         const audio = new THREE.Audio(listener);
 
         // Add an event listener to the input field to upload the audio when it is changed
-        document.querySelector("input").addEventListener("change", uploadAudio, false);
+        // document.querySelector("input").addEventListener("change", uploadAudio, false);
 
         // Create an array of buttons to control the audio
         const buttons = document.querySelectorAll(".btn");
@@ -190,7 +180,7 @@
 
 
         function init() {
-            const overlay = document.getElementById("overlay");
+           const overlay = document.getElementById("overlay");
             overlay.remove();
 
             scene = new THREE.Scene();
@@ -259,10 +249,10 @@
 
         function loadAudio(i) {
             document.getElementById("overlay").innerHTML =
-                '<div class="text-loading">Show Time ...</div>';
+                '<div class="text-loading">圣诞快乐，亲爱的格格！</div>';
             const files = [
-                "shengdanxing.mp3",
-                "Jingoldbell.mp3"
+                // "shengdanxing.mp3",
+                "Jingoldbell.mp3",
             ];
 
             const file = files[i];
@@ -274,33 +264,29 @@
                 analyser = new THREE.AudioAnalyser(audio, fftSize);
                 init();
             });
-
-
-
-
         }
 
 
-        function uploadAudio(event) {
-            document.getElementById("overlay").innerHTML =
-                '<div class="text-loading">给格格的礼物。。。</div>';
-            const files = event.target.files;
-            const reader = new FileReader();
-
-            reader.onload = function(file) {
-                var arrayBuffer = file.target.result;
-
-                listener.context.decodeAudioData(arrayBuffer, function(audioBuffer) {
-                    audio.setBuffer(audioBuffer);
-                    audio.play();
-                    analyser = new THREE.AudioAnalyser(audio, fftSize);
-                    init();
-                });
-            };
-
-            reader.readAsArrayBuffer(files[0]);
-
-        }
+        // function uploadAudio(event) {
+        //     document.getElementById("overlay").innerHTML =
+        //         '<div class="text-loading">给格格的礼物。。。</div>';
+        //     const files = event.target.files;
+        //     const reader = new FileReader();
+        //
+        //     reader.onload = function(file) {
+        //         var arrayBuffer = file.target.result;
+        //
+        //         listener.context.decodeAudioData(arrayBuffer, function(audioBuffer) {
+        //             audio.setBuffer(audioBuffer);
+        //             audio.play();
+        //             analyser = new THREE.AudioAnalyser(audio, fftSize);
+        //             init();
+        //         });
+        //     };
+        //
+        //     reader.readAsArrayBuffer(files[0]);
+        //
+        // }
 
         function addTree(scene, uniforms, totalPoints, treePosition) {
             const vertexShader = `
